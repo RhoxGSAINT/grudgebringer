@@ -23,7 +23,9 @@ mod.simulate_army_refresh = function(commander_cqi)
 		core:get_ui_root(),
 		"layout","bar_small_top", "TabGroup", "tab_units"
 	)
-
+    if not tab_units then
+        return--do nothing then script break
+    end
 	local do_we_close_the_panel_after = false
 	if tab_units:CurrentState() ~= "selected" then
 		tab_units:SimulateLClick()

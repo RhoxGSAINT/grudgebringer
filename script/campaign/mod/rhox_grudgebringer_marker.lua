@@ -52,58 +52,26 @@ local rhox_grudgebringer_reinforcements_list ={
     ["mixer_teb_southern_realms"] = "ovn_gru_teb_force",
 }    
 
+local ovn_random_name_prefix="ovn_grudge_random_faction_name_"
+
 local faction_key_to_random_faction_name={
-    wh2_dlc13_skv_skaven_invasion = {
-        "Thanquol's Pawns","Hellpaw's Raiders","Skreektak's Tinkerers", "Siskritt's Robbers", "Sleaquit's Stabberz"
-    },
-    wh2_dlc13_grn_greenskins_invasion = {
-        "Urgat Rip-Eye's Boyz","Gorgrhum Snot's Ladz","Oruk Gutspiller's Boyz"
-    },
-    wh2_dlc11_cst_vampire_coast_encounters = {
-        "Greatship Boarders","Landlubber Pirates","Shipwrecked Pirates"
-    },
-    wh2_dlc13_nor_norsca_invasion = {
-        "Pack Ice Bay Raiders","Crimson Harvest Cult","Wolfship Sinkers"
-    },
-    wh_main_emp_empire_qb1 = {
-        "Hiln's Guard","Gourard's Bandits","Carstein Brigands", "Weiss' Highwaymen", "Muntz Outlaws"
-    },
-    wh_main_chs_chaos_qb1 = {
-        "Spell-Eaters","Unholy Razers","Advent of Chaos"
-    },
-    wh2_dlc13_bst_beastmen_invasion = {
-        "Moon Defilers","Deamon-Hoofed","Cloven Dread"
-    },
-    wh2_main_def_dark_elves_qb1 = {
-        "Corsairs of the Storm","Raiders of Greed","Moon Raiders"
-    },
-    wh3_main_ogr_ogre_kingdoms_qb1 = {
-        "Never-Ending Hunger","Mad Stew Tribe","Rotgut Tribe"
-    },
-    wh3_main_kho_khorne_qb1 = {
-        "Blood Eagles","Blood Defilers","Limb-Takers"
-    },
-    wh3_main_nur_nurgle_qb1 = {
-        "Pox Bursters","Swollen Pustules","The Many Mouths"
-    },
-    wh3_main_tze_tzeentch_qb1 = {
-        "The Oracle","The All-Seeing"
-    },
-    wh3_main_sla_slaanesh_qb1 = {
-        "Tendrils of Seduction","Crimson Serpent Cult"
-    },
-    wh_main_vmp_vampire_counts_qb1 = {
-        "Black Grail Legion","Hand's Awakened","Carstein's Risen", "Dread King's Horde", "Skabskrath Holders"
-    },
-    ovn_troll_gobblers = {
-        "Gobbler Tribe"
-    },
-    wh3_dlc23_chd_chaos_dwarfs_qb1 = {
-        "Bull Raiders","Hashut Slavers","Thunder Skull-Splitter"
-    },
-    wh_main_dwf_dwarfs_qb1 = {
-        "Slayers"
-    }
+    wh2_dlc13_skv_skaven_invasion = 5,
+    wh2_dlc13_grn_greenskins_invasion = 3,
+    wh2_dlc11_cst_vampire_coast_encounters = 3,
+    wh2_dlc13_nor_norsca_invasion = 3,
+    wh_main_emp_empire_qb1 = 5,
+    wh_main_chs_chaos_qb1 = 3,
+    wh2_dlc13_bst_beastmen_invasion = 3,
+    wh2_main_def_dark_elves_qb1 = 3,
+    wh3_main_ogr_ogre_kingdoms_qb1 = 3,
+    wh3_main_kho_khorne_qb1 = 3,
+    wh3_main_nur_nurgle_qb1 = 3,
+    wh3_main_tze_tzeentch_qb1 = 2,
+    wh3_main_sla_slaanesh_qb1 = 2,
+    wh_main_vmp_vampire_counts_qb1 = 5,
+    ovn_troll_gobblers = 1,
+    wh3_dlc23_chd_chaos_dwarfs_qb1 = 3,
+    wh_main_dwf_dwarfs_qb1 = 1
 }
 
 --Events
@@ -2612,8 +2580,8 @@ function rhox_grudgebringer_spawn_marker_battle_force(character, attacking_force
 	local reinforcements_num =2
 
     local random_pool = faction_key_to_random_faction_name[enemy_faction]
-    local random_number_fn = cm:random_number(#random_pool, 1)
-    local ovn_gru_enemy_faction_name = random_pool[random_number_fn]
+    local random_number_fn = cm:random_number(random_pool, 1)
+    local ovn_gru_enemy_faction_name = common.get_localised_string(ovn_random_name_prefix .. tostring(random_number_fn) .. "_" .. enemy_faction)
     cm:change_custom_faction_name(enemy_faction, ovn_gru_enemy_faction_name)
 	
 	if dilemma_name == "rhox_grudgebringer_battle_e" then 
@@ -2823,7 +2791,6 @@ function rhox_grudgebringer_create_marker_battle(character, enemy_force_cqi, x, 
         end,
         function(context)
             uim:override("retreat"):unlock() --unlock the retreat button after the battle
-            out("Rhox Grudge Do you have the correct CQI?: "..reinforcement_general_cqi)
             cm:callback(function() rhox_grudge_clear_marker_forces(reinforcement_general_cqi) end, 0.5);--remove any reinforcements or remaining enemies if there is any. No callback will cause crash as it's still in the result panel
         end,
         false
