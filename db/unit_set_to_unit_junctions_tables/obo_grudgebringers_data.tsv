@@ -418,3 +418,28 @@ unit_caste	unit_category	unit_class	unit_record	unit_set	exclude
 			wh_main_dwf_inf_longbeards_1	ovn_gru_dwarfs_unit_all	false
 			wh_main_dwf_inf_hammerers	ovn_gru_dwarfs_unit_all	false
 			wh_main_dwf_inf_ironbreakers	ovn_gru_dwarfs_unit_all	false
+			leitdorf_9th_crossbows	emp_crossbow	false
+			leitdorf_9th_crossbows	wh2_dlc11_emp_vets_free_company_crossbowmen_huntsmen_archers_handgunners_pistoliers_outriders	false
+			leitdorf_9th_crossbows	wh2_dlc11_emp_free_company_crossbowmen_huntsmen_archers_handgunners_pistoliers_outriders	false
+			leitdorf_9th_crossbows	emp_infantry	false
+			leitdorf_9th_crossbows	emp_state_troops	false
+			leitdorf_9th_crossbows	wh2_main_hef_moranions_wayshard	false
+			leitdorf_9th_crossbows	wh2_dlc13_emp_huntsmen_archers	false
+			leitdorf_9th_crossbows	wh2_main_ror_units_all	false
+			reiksguard_knights_todbringer	cavalry_and_monsters_knights	false
+			reiksguard_knights_todbringer	emp_all	false
+			reiksguard_knights_todbringer	emp_knights	false
+			reiksguard_knights_todbringer	emp_lances	false
+			reiksguard_knights_todbringer	emp_melee_infantry_tier_2	false
+			reiksguard_knights_todbringer	emp_reiksguard	false
+			reiksguard_knights_todbringer	mp_cap_unit_emp_cav_reiksguard	false
+			reiksguard_knights_todbringer	mp_cap_unit_emp_cav_zintlers_reiksguard_0	false
+			reiksguard_knights_todbringer	wh2_dlc11_emp_empire_knights_reiksguard_knights_of_the_blazing_sun	false
+			reiksguard_knights_todbringer	wh2_dlc11_emp_vets_greatswords_halberds_reiksguard_knights_of_the_blazing_sun_demigryph_knights_ror	false
+			reiksguard_knights_todbringer	wh2_main_ror_units_all	false
+			emperors_hellblaster_volley_gun	emp_all	false
+			emperors_hellblaster_volley_gun	emp_artillery	false
+			emperors_hellblaster_volley_gun	mp_cap_group_ranged_units	false
+			emperors_hellblaster_volley_gun	mp_cap_unit_emp_art_helblaster_volley_gun	false
+			emperors_hellblaster_volley_gun	wh2_dlc11_emp_vets_all_artillery_luminark_steam_tank_war_wagon	false
+			emperors_hellblaster_volley_gun	wh2_main_ror_units_all	false
