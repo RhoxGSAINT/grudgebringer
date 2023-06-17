@@ -133,6 +133,8 @@ local function new_game_startup()
         cm:force_diplomacy("faction:ovn_emp_grudgebringers", "culture:wh3_main_ksl_kislev", "war", false, false, true);
         cm:force_diplomacy("faction:ovn_emp_grudgebringers", "culture:mixer_teb_southern_realms", "war", false, false, true);
         
+        cm:force_diplomacy("faction:ovn_emp_grudgebringers", "faction:wh2_dlc16_wef_drycha", "war", true, true, true);
+        
         --Spawn Starting Enemy Army
         
         if grudgebringers:is_human() then

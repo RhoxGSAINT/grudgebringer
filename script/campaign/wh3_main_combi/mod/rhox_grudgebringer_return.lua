@@ -180,7 +180,7 @@ local function rhox_find_5_faction_for_climate(character, climate)
 	for i = 0, faction_list:num_items() - 1 do
 		local current_faction = faction_list:item_at(i);
 		local distance_to_closest_region = 99999999
-		if culture_check_table[current_faction:culture()] and current_faction:is_dead() == false then
+        if culture_check_table[current_faction:culture()] and current_faction:is_dead() == false and current_faction:name() ~= "wh2_dlc16_wef_drycha" then
             local region_list = current_faction:region_list()
             for k = 0, region_list:num_items() - 1 do
                 local current_settlement = region_list:item_at(k):settlement();
@@ -253,6 +253,18 @@ core:add_listener(
             local ti = cm:random_number(#target_unit_table, 1)
             local max_unit = target_unit_table[ti].max+character:faction():bonus_values():scripted_value("rhox_grudge_settlement_bonus_unit_number_modifier", "value")
             cm:add_units_to_faction_mercenary_pool(character:faction():command_queue_index(), target_unit_table[ti].name, cm:random_number(max_unit, target_unit_table[ti].min))
+            
+            if target_faction:is_human() then
+                local incident_builder = cm:create_incident_builder("rhox_grudgebringer_get_settlement_from_grudgebringer")
+                --incident_builder:add_target("default", character)
+                incident_builder:add_target("default", context:garrison_residence():settlement_interface():region())
+                
+                local payload_builder = cm:create_payload()
+                payload_builder:text_display("rhox_grudgebringer_settlement_returned")
+                incident_builder:set_payload(payload_builder)
+                cm:launch_custom_incident_from_builder(incident_builder, target_faction)
+            end
+            
             return
         end
     
@@ -387,7 +399,7 @@ core:add_listener(
         cm:transfer_region_to_faction(rhox_target_settlement_name, rhox_faction_candidate_table[choice+1].name)--return the place to the selected
         
         cm:force_add_trait("character_cqi:"..context:faction():faction_leader():cqi(), "rhox_grudge_settlement_helper", true, 1);
-        cm:replenish_action_points("character_cqi:"..context:faction():faction_leader():cqi()) --replenish action points for returning the settlement
+        cm:replenish_action_points("character_cqi:"..context:faction():faction_leader():cqi(), 0.3) --replenish action points for returning the settlement
         rhox_check_ror_rewards(context:faction())--get RoRs
     end,
     true

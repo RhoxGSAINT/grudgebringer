@@ -2,6 +2,13 @@ local grudgebringer_faction = "ovn_emp_grudgebringers"
 local grudgebringer_mission_key = "rhox_grudgebringer_piece_of_eight_"
 local skip_mission_sampling_num = 5
 local skip_mission_table={}
+local real_mousillon
+
+if common.vfs_exists("script/campaign/wh3_main_combi/mod/mixu_mousillon_campaign.lua") then
+    real_mousillon = "mixer_msl_mallobaude"
+else
+    real_mousillon = "wh_main_vmp_mousillon"
+end
 
 local grudgebringer_missions ={
    {
@@ -123,7 +130,7 @@ local grudgebringer_missions ={
     },
     {
         type = "DEFEAT_N_ARMIES_OF_FACTION",
-        faction_key = "wh_main_vmp_mousillon",
+        faction_key = real_mousillon,
         count = 2,
         reward = "grail_knights_tristan_de_la_tourtristan_de_la_tour"
     },

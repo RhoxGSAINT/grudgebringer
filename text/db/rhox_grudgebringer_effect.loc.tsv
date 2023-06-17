@@ -51,3 +51,5 @@ effects_description_rhox_grudge_engrol_dip_men	Diplomacy: %+n with all nations o
 effects_description_rhox_grudge_contract_reward_money	Treasury income from contracts: %+n%	false
 effects_description_rhox_grudge_effect_force_stat_speed_ksl	Speed: %+n% for Kislev units	false
 effects_description_rhox_grudge_effect_force_stat_melee_defence_ksl	Melee defence: %+n for Kislev units	false
+effects_description_rhox_grudge_enable_extra_reload	Passive ability: "Extra Reload"	false
+effects_description_rhox_grudge_enable_endless_drum	Passive ability: "Endless Drum"	false

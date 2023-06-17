@@ -70,20 +70,20 @@ ice_mage_vladimir_stormbringer_unit_description	Vladimir is an Ice Mage to Tzari
 dwarf_envoy_unit_description	Engrol Goldtongue is the official Dwarf Envoy from the fortress of Zhufbar. His skills in diplomacy are unnaturally proficient for a Dwarf and he has resolved many quarrels with the Empire in his career which spans over two centuries.	false
 matthias_unit_description	Matthias, a Witch Hunter General, works tirelessly to eradicate heresy in the Empire, be it men, women or children. Not everyone approves of his 'zeal', including Morgan Bernhardt, but most accept his firebrand fanaticism is more than necessary.	false
 luther_flamenstrike_unit_description	Stubborn and egotistical, Luther Flamestrike also has a fiery temper to complement his magical abilities. He was exiled from the Bright College in Nuln after an argument with a colleague caused a firestorm which destroyed a tavern and set the surrounding buildings ablaze. Luther is a competent wizard but prone to. Flamestrike now wanders the lands gladly offering his services as a master of the magic arts... for a 'reasonable price'.	false
-carlsson_cavalry_unlock_condition	Foil the Skaven collaborator Otto Hiln	false
+carlsson_cavalry_unlock_condition	Foil the Skaven collaborator Otto Hiln.	false
 ludwig_uberdorf_unlock_condition	Relieve the broken down Steam Tank at Flensburg.	false
 ceridan_unlock_condition	Escort Ceridan to Kings Glade, Loren.	false
 ice_mage_vladimir_stormbringer_unlock_condition	Cross the Kislev border at Vitevo.	false
 dwarf_envoy_unlock_condition	March to Zhufbar.	false
-matthias_unlock_condition	Answer the Emperor's summons to Altdorf, Reikland.	false
-luther_flamenstrike_unlock_condition	Travel to Averheim.	false
+matthias_unlock_condition	Answer the Emperor's summons to Altdorf.	false
+luther_flamenstrike_unlock_condition	Investigate the wolf infestation at Averheim.	false
 ovn_book_unlock_text	Unlock requirement	false
 ovn_book_1win_text	Win 1 battle against	false
 ovn_book_win_word_text	Win	false
 ovn_book_battles_against_text	battles against	false
 ovn_book_not_available_text	[[col:red]] Unit is not available for hire this campaign[[/col]]	false
 ovn_book_to_unlock_text	To Unlock: 	false
-ovn_book_recruitment_ledger	Recruitment Ledger	false
+ovn_book_recruitment_ledger	Troop Roster	false
 leitdorf_9th_crossbows_unit_commander_name	Captain Holger	false
 emperors_hellblaster_volley_gun_unit_commander_name	Andrey Chokhov	false
 reiksguard_knights_todbringer_unit_commander_name	Captain Todbringer	false
