@@ -97,7 +97,7 @@ character_skills_localised_name_ovn_grudge_soldiers_of_fortune	The Bonds of War	
 character_skills_localised_description_ovn_grudge_soldiers_of_fortune	Many regiments have come and gone but those few that bear the Grudgebringer name have developed a brotherhood like no other.	false
 character_skills_localised_name_ovn_grudge_gold	For Gold	false
 character_skills_localised_description_ovn_grudge_gold	If death is a reward, I'll take it in gold coin, old friend. The glory we'll leave for others.	false
-character_skills_localised_name_ovn_grudge_glory	Greater than Glory	false
+character_skills_localised_name_ovn_grudge_glory	For Glory	false
 character_skills_localised_description_ovn_grudge_glory	I don't give a damn about glory, I do what I must.	false
 character_skills_localised_description_morgan_bernhardt_battle_skill_01	Hack, hack and hack again, such is the bloody work of the mercenary.	false
 character_skills_localised_description_morgan_bernhardt_battle_skill_02	Bernhardt knows it's easier to hack down his enemies after softening them up with a few volleys.	false
@@ -128,3 +128,52 @@ character_skills_localised_description_matthias_innate	Though most Witch Hunters
 character_skills_localised_name_matthias_innate	Holy Templar of Sigmar	false
 character_skills_localised_description_ludwig_greenskin_grudge	Ludwig's bodyguard detachment of Imperial Halberdiers were cut down by Greenskin filith and now he seeks revenge for his fallen brothers.	false
 character_skills_localised_name_ludwig_greenskin_grudge	Greenskin Hatred	false
+character_skills_localised_name_ludwig_uberdorf_skill_dump	Skill Dump	true
+character_skills_localised_description_ludwig_uberdorf_skill_dump	Dump Skill	true
+character_skills_localised_name_ludwig_uberdorf_skill_mount	Warhorse	true
+character_skills_localised_description_ludwig_uberdorf_skill_mount	While Ludwig's steam tank is being repaired, his loyal dwarfs have built a steam weapon that can be comfortably used on horseback.	true
+character_skills_localised_name_ludwig_uberdorf_skill_gyrobomber	Gyrobomber with Hellblaster	true
+character_skills_localised_description_ludwig_uberdorf_skill_gyrobomber	The repair of the tank will soon be completed, but some more time is needed. To great luck, the dwarves from Ludwig's team managed to get a working gyrobomber and fasten a volley gun to it	true
+character_skills_localised_name_ludwig_uberdorf_skill_steam_tank	Ignis Draconis Steam Tank	true
+character_skills_localised_description_ludwig_uberdorf_skill_steam_tank	The steam tank will be available once the tank crew finish their repairs.	true
+character_skills_localised_description_ceridan_innate	Only those who are adept at swordsmanship and stealth are permitted to be Rangers in Asrai society.	true
+character_skills_localised_name_ceridan_innate	Elven Ranger	true
+character_skills_localised_description_ceridan_skaven_scourge	Years of stalking the despised Ratmen has made Ceridan a feared individual amongst Skavendom. Ceridan often shares his experiences around campfires to any who would listen.	true
+character_skills_localised_name_ceridan_skaven_scourge	Scourge of Skaven	true
+character_skills_localised_description_ceridan_natural_hunter	Ceridan was born with natural affinity towards hunting and swordplay, a valuable trait for any aspiring Rangers.	true
+character_skills_localised_name_ceridan_natural_hunter	Natural Hunter	true
+character_skills_localised_description_ceridan_lone_wolf	Ceridan prefers to work alone as he believes himself to be most efficient when he doesn’t have to worry about others. Like the time he spent in the black Mountains, gathering information to use against the Skaven.	true
+character_skills_localised_name_ceridan_lone_wolf	Lone Wolf	true
+character_skills_localised_description_engrol_innate	Engrol Goldtongue is the official Dwarf Envoy from the fortress of Zhufbar to the Empire, relaying messages from the High King Grudgebearer to Emperor Franz.	true
+character_skills_localised_name_engrol_innate	Envoy of the High King	true
+character_skills_localised_description_engrol_gold_tongue	With his unnatural gift of persuasion, Engrol can twist any situation to be of benefit to his lords and allies.	true
+character_skills_localised_name_engrol_gold_tongue	Gold Tongue	true
+character_skills_localised_description_engrol_trademaster	Engrol is famous for striking lucrative trade deals where even the most experienced businessmen have failed.	true
+character_skills_localised_name_engrol_trademaster	Trademaster	true
+character_skills_localised_description_engrol_dwf_bodyguard	Engrol’s bodyguard are fierce warriors who are completely loyal and will protect him in battle to the very last.	true
+character_skills_localised_name_engrol_dwf_bodyguard	Dwarven Bodyguards	true
+character_skills_localised_description_engrol_persuasion_master	Engrol’s skills in diplomacy are unnaturally proficient for a Dwarf and he has resolved many quarrels with the Empire in his career spanning over two centuries.	true
+character_skills_localised_name_engrol_persuasion_master	Master of Persuasion	true
+character_skills_localised_description_morgan_innate	Morgan Bernhardt commands the renowned mercenary company known as The Grudgerbringers. Famous all over the Old World, from Bernhardt’s homeland of Reikland to the lands of the Border Princes and the far eastern empires.	true
+character_skills_localised_name_morgan_innate	Grudgebringer Commander	true
+character_skills_localised_description_mercenary_commander	It takes great leadership and charisma to lead such a disorderly bunch into war…	true
+character_skills_localised_name_mercenary_commander	Mercenary Commander	true
+character_skills_localised_description_motley_crew	The Grudgebringers are mostly consisted of a rag tag group of Men, Elves, Dwarves and Ogres held together by Bernhardt’s skilled leadership. 	true
+character_skills_localised_name_motley_crew	Motley Crew	true
+character_skills_localised_description_sworn_to_emperor	Despite leading a mercenary company, Bernhardt is still very loyal to his homeland of Reikland and its Emperor. Bernhardt’s company is often entrusted with carrying out dangerous missions by Franz himself.	true
+character_skills_localised_name_sworn_to_emperor	Sworn to the Emperor	true
+character_skills_localised_description_sword_against_vermin	Bernhardt and his company have lead many attacks against the vile Ratmen. One such attack was the campaign to stop the infamous Grey Seer Thanquol from using magical Elven stones to destroy the realms of men, known as the Shadow of the Horned Rat	true
+character_skills_localised_name_sword_against_vermin	Sword Against Vermin	true
+character_skills_localised_description_dark_omen	Bernhardt has also had skirmishes against the undead servants of Nagash, the most notable being the resurrection of one of Nagash’s commanders, The Dread King, who was stopped before he could wreak havoc upon the world by Bernhardt and his men. 	true
+character_skills_localised_name_dark_omen	The Dark Omen	true
+character_skills_localised_description_bane_of_evil	Bernhardt has slayed monsters of all kinds during his many campaigns against the Undead, Greenskins and Ratmen; he is truly a man who fears very little.	true
+character_skills_localised_name_bane_of_evil	Bane of Evil	true
+character_skills_localised_description_true_hero	Bernhardt, who started out as a simple mercenary interested in making quick money, turned into a respected man, both amongst his band and the greater world; his deeds spread all over the Old World and beyond.	true
+character_skills_localised_name_true_hero	A True Hero	true
+character_skills_localised_name_morgan_bernhardt_mount	Warhorse	true
+character_skills_localised_description_morgan_bernhardt_mount	Bernhardt's battle-tested warhorse	true
+character_skills_localised_name_gaston_mount	Warhorse	true
+character_skills_localised_description_matthias_war_wagon	Matthias's personal War Wagon a hybrid of a heavy chariot with a combat platform and a carriage.	false
+character_skills_localised_name_matthias_war_wagon	Mattias' War Wagon	false
+character_skills_localised_description_dwarf_envoy_oath_stone	Standing atop an Oath Stone, a Thane increases the resolve of his followers and ensures that all foes find him.	false
+character_skills_localised_name_dwarf_envoy_oath_stone	Oath Stone	false

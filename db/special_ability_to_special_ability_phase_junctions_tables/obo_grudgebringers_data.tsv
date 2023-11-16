@@ -20,3 +20,5 @@ order	special_ability	target_self	target_friends	target_enemies	phase
 1	grudge_weapon_abilities_storm_sword	true	false	false	grudge_weapon_abilities_storm_sword
 1	rhox_grudge_stormbringer_ability	true	true	false	rhox_grudge_stormbringer_ability
 1	grudgebringers_wagon	true	true	false	grudgebringers_wagon
+1	rhox_grudge_sword_of_elior	true	true	false	grudgebringer_sword_of_elior
+1	rhox_grudge_abilities_mighty_oath_stone	true	true	false	rhox_grudge_abilities_mighty_oath_stone

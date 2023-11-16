@@ -91,3 +91,7 @@ unit_abilities_tooltip_text_grudge_ability_swiftness_of_itzl	The charge of these
 unit_abilities_onscreen_name_grudge_ability_swiftness_of_itzl	Unstoppable Charge	true
 unit_abilities_tooltip_text_grudge_ability_skv_verminous_valour	Come to me, men! This may be our final battle, but our enemies will pay a high price for our lives!	true
 unit_abilities_onscreen_name_grudge_ability_skv_verminous_valour	Decisive Battle	true
+unit_abilities_onscreen_name_rhox_grudge_sword_of_elior	Sword of Eilor	false
+unit_abilities_tooltip_text_rhox_grudge_sword_of_elior	This splendid elven sword contains a piece of rune crystal attached to the shaft. It has magical properties that detect the presence of dwarves and in doing so sharpen the blade to double its fineness, giving the welder more destructive potential.	false
+unit_abilities_onscreen_name_rhox_grudge_abilities_mighty_oath_stone	Mighty Oath Stone	false
+unit_abilities_tooltip_text_rhox_grudge_abilities_mighty_oath_stone	Engrol Goldtongue stands tauntingly atop the Oath Stone to fight to the end.	false

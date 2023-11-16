@@ -789,8 +789,8 @@
 				<newstate
 					this="55db4e36-1918-447e-00155d2c9b3533a9D24B"
 					name="NewState"
-					width="1336"
-					height="821"
+					width="1350"
+					height="850"
 					interactive="true"
 					uniqueguid="55db4e36-1918-447e-00155d2c9b3533a9D24B">
 					<imagemetrics>
@@ -799,8 +799,8 @@
 							uniqueguid="6ec76bb6-3518-6da2-00155d2c9b35c17c9EC9"
 							componentimage="fc43e0be-3d86-cf48-00155d2c9b351bca2A16"
 							offset="9.00,5.00"
-							width="1317"
-							height="910"
+							width="1331"
+							height="940"
 							tile="true"
 							dockpoint="Center"
 							margin="5.00,5.00,5.00,5.00"/>
@@ -809,7 +809,7 @@
 							uniqueguid="c66ef8e7-5952-e12a-00155d2c9b35b99fE48C"
 							componentimage="f25bc917-ff42-53ce-00155d2c9b35b544035B"
 							offset="-28.00,-21.00"
-							width="1447"
+							width="1460"
 							height="963"
 							dockpoint="Center"
 							dock_offset="27.00,0.00"

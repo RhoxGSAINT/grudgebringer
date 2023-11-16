@@ -175,3 +175,8 @@ effects_description_ovn_recruitment_cost_reduction_gru_ogre	Recruitment cost: %+
 effects_description_ovn_recruitment_cost_upkeep_gru_empire	Upkeep: %+n% for Empire units recruited from buildings	false
 effects_description_ovn_recruitment_cost_upkeep_gru_dwarf	Upkeep: %+n% for Dwarf units recruited from buildings	false
 effects_description_ovn_recruitment_cost_upkeep_gru_ogre	Upkeep: %+n% for Ogre units recruited from buildings	false
+effects_description_ovn_gru_stat_melee_attack_units_recruited_building	Melee Attack: %+n for all units recruited from buildings	false
+effects_description_ovn_gru_stat_melee_defense_units_recruited_building	Melee Defense: %+n for all units recruited from buildings	false
+effects_description_ovn_gru_stat_leadership_units_recruited_building	Leadership: %+n for all units recruited from buildings	false
+effects_description_matthias_war_wagon	Mount: War Wagon	false
+effects_description_dwarf_envoy_oath_stone	Mount: Oath Stone	false

@@ -59,3 +59,41 @@ character_skills_localised_name_ovn_grudge_skill_node_luther_flamenstrike_unique
 character_skills_localised_description_ovn_grudge_skill_node_luther_flamenstrike_unique_06	His spells are like infernos, leaving nothing but ash and cinders in their wake. His enemies quickly learn to fear the searing heat of his magic.	false
 character_skills_localised_name_rhox_ovn_grudgebringer_ludwig_innate	Pioneer of Technology	false
 character_skills_localised_description_rhox_ovn_grudgebringer_ludwig_innate	Nothing is beyond that of which he dreams, with old hands he deftly put to fruition his machinations.	false
+character_skills_localised_description_rhox_ovn_grudgebringer_immortal_for_ai	[HIDDEN]Immortal for AI	false
+character_skills_localised_name_rhox_ovn_grudgebringer_immortal_for_ai	[HIDDEN]Immortal for AI	false
+character_skills_localised_description_rhox_ovn_grudge_item_sword_of_eilor	This splendid elven sword contains a piece of rune crystal attached to the shaft. It has magical properties that detect the presence of dwarves and in doing so sharpen the blade to double its fineness, giving the welder more destructive potential.	false
+character_skills_localised_name_rhox_ovn_grudge_item_sword_of_eilor	Sword of Eilor	false
+character_skills_localised_description_grudge_anc_rune_rune_of_fury	Bright and angry glow the Runes of Fury, the weapons that hold them almost jumping out of their wielders' hands in desperation to strike the foe.	false
+character_skills_localised_name_grudge_anc_rune_rune_of_fury	Rune of Fury	false
+character_skills_localised_description_grudge_anc_rune_rune_of_might	A Dwarf wielding a weapon bearing the Runes of Might can fell a Giant in a flurry of axe blows.	false
+character_skills_localised_name_grudge_anc_rune_rune_of_might	Rune of Might	false
+character_skills_localised_description_grudge_anc_rune_rune_of_parrying	A weapon with this rune moves to block incoming attacks, making its wielder extremely hard to hit.	false
+character_skills_localised_name_grudge_anc_rune_rune_of_parrying	Rune of Parrying	false
+character_skills_localised_description_grudge_anc_rune_rune_of_striking	The Rune of Striking causes the weapon to hit the foe’s most vulnerable area with an uncanny precision.	false
+character_skills_localised_name_grudge_anc_rune_rune_of_striking	Rune of Striking	false
+character_skills_localised_description_rhox_allor_innate	Not for you	false
+character_skills_localised_name_rhox_allor_innate	I work for the Earth	false
+character_skills_localised_description_rhox_allor_unique_1	They search warp stone. They have no respect, they spawn evil	false
+character_skills_localised_name_rhox_allor_unique_1	The Watcher	false
+character_skills_localised_description_rhox_allor_unique_2	They should be stopped	false
+character_skills_localised_name_rhox_allor_unique_2	Hatred towards Skaven	false
+character_skills_localised_description_rhox_allor_unique_3	Mother Earth is pregnant	false
+character_skills_localised_name_rhox_allor_unique_3	Walk Lightly	false
+character_skills_localised_description_rhox_allor_unique_4	Bestowed with unwavering power, Allor intervenes with his Amber magic to ensure the survival of Ceridan and Carlsson in their direst moments	false
+character_skills_localised_name_rhox_allor_unique_4	Savior	false
+character_skills_localised_description_rhox_allor_unique_5	He preserves life and restores vitality in the face of peril	false
+character_skills_localised_name_rhox_allor_unique_5	Allor's Benevolent Resurgence	false
+character_skills_localised_description_rhox_allor_unique_6	Infused with Amber's might, Allor imparts reduced winds of magic costs and cooldowns, hastening spellcasting with unparalleled mastery	false
+character_skills_localised_name_rhox_allor_unique_6	All Evil Must Be Stopped	false
+character_skills_localised_description_vladimir_stormbringer_mount	Vladimir Stormbringer's battle-tested warhorse	false
+character_skills_localised_name_vladimir_stormbringer_mount	Warhorse	false
+character_skills_localised_description_ludwig_uberdorf_mechanical_steed	While Ludwig's steam tank is being repaired, he get in Nuln mechanical steed which was created by the greatest engineer Chaos Robie	false
+character_skills_localised_name_ludwig_uberdorf_mechanical_steed	Mechanical Steed (Pistols)	false
+character_skills_localised_description_ludwig_uberdorf_mount	A general's horse can be their most trusted and daring companion. Just don't name him 'Daisy'.	false
+character_skills_localised_name_ludwig_uberdorf_mount	Barded Warhorse	false
+character_skills_localised_description_allor_griffon	Once trained to carry a man in battle, Imperial griffons are poised killers and incredibly dedicated to their riders.	false
+character_skills_localised_name_allor_griffon	Imperial Griffon	false
+character_skills_localised_description_ceridan_eagle	Great Eagles are the firm allies of the Elves, fighting their causes since the coming of Chaos.	false
+character_skills_localised_name_ceridan_eagle	Great Eagle	false
+character_skills_localised_description_rhox_grudge_ceridan_hero_assist_army_replenish_troops	Those in the army can find succour or be replenished by the power of this champion.	false
+character_skills_localised_name_rhox_grudge_ceridan_hero_assist_army_replenish_troops	{{tr:agent_action_name_replenish_troops}}	false
