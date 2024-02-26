@@ -12,7 +12,7 @@ local function binding_iter(binding)
 end
 
 local grudebringers_faction_key = "ovn_emp_grudgebringers"
-
+local grudgebringers_api = get_grudgebringers_api()
 local function spawn_new_force()
 
     local x = 712
@@ -61,64 +61,26 @@ local function new_game_startup()
 	end
 
     spawn_new_force()
-
-    local unit_count = 1 -- card32 count
-    local rcp = 20 -- float32 replenishment_chance_percentage
-    local max_units = 1 -- int32 max_units
-    local murpt = 0 -- float32 max_units_replenished_per_turn
-    local xp_level = 0 -- card32 xp_level
-    local frr = "" -- (may be empty) String faction_restricted_record
-    local srr = "" -- (may be empty) String subculture_restricted_record
-    local trr = "" -- (may be empty) String tech_restricted_record
-    local units = {
-		"helmgart_bowmen",
-		"keelers_longbows",
-		"dargrimm_firebeard_dwarf_warriors",
-		"azguz_bloodfist_dwarf_warriors",
-		"urblab_rotgut_mercenary_ogres",
-		"treeman_knarlroot",
-		"galed_elf_archers",
-        "elrod_wood_elf_glade_guards",
-        "black_avangers",
-        "carlsson_cavalry",
-        "carlsson_guard",
-        "countess_guard",
-        "vannheim_75th",
-        "treeman_gnarl_fist",
-        "ragnar_wolves",
-        "flagellants_eusebio_the_bleak",
-        "dieter_schaeffer_carroburg_greatswords",
-        "imperial_cannon_darius_flugenheim",
-        "knights_of_the_realm_bertrand_le_grande",
-        "grail_knights_tristan_de_la_tourtristan_de_la_tour",
-        "dwarf_envoy_dwarf_warriors",
-        "jurgen_muntz_outlaw_infantry",
-        "stephan_weiss_outlaw_pistoliers",
-        "boris_von_raukov_4th_nuln_halberdiers",
-        "uter_blomkwist_imperial_mortar",
-        "dwarf_envoy_dwarf_warriors",
-        "leitdorf_9th_crossbows",
-        "emperors_hellblaster_volley_gun",
-        "reiksguard_knights_todbringer"
-    }
-
-    
-    for _, unit in ipairs(units) do
-        cm:add_unit_to_faction_mercenary_pool(
+    out("DEBUG: OVN Grudgebringers: new_game_startup mercenary pool initialization")
+    for k, unit in pairs(grudgebringers_api:grudgebringer_get_all_faction_units()) do
+        out("DEBUG: OVN Grudgebringers: Found unit " .. unit)
+        local is_return = unit:sub(1,12) == "rhox_grudge_"
+        cm:add_unit_to_faction_mercenary_pool( -- TODO: Lotta these magic numbers should be made defines.
             grudgebringers,
-            unit,
-            "renown",
-            unit_count,
-            rcp,
-            max_units,
-            murpt,
-            frr,
-            srr,
-            trr,
+            is_return and unit:sub(13) or unit,
+            is_return and "rhox_grudge_return_recruit" or "renown",
+            is_return and 0 or 1,
+            is_return and 100 or 20,
+            is_return and 20 or 1,
+            0,
+            "",
+            "",
+            "",
             true,
             unit
         )
     end
+    out("DEBUG: OVN Grudgebringers: new_game_startup mercenary pool initialization end")
     cm:add_event_restricted_unit_record_for_faction("dwarf_envoy_dwarf_warriors", grudebringers_faction_key, "rhox_grudge_locked_by_envoy")
     
         if to_kill_cqi then
@@ -129,19 +91,17 @@ local function new_game_startup()
             cm:callback(function() cm:disable_event_feed_events(false, "wh_event_category_character", "", "") end, 0.5)
         end
         
-        -- prevent war with Order factions bar Lizardmen
-        for culture_key, _ in pairs(RHOX_GRUDGEBRINGER_GOOD_CULTURE) do
-            cm:force_diplomacy("faction:ovn_emp_grudgebringers", "culture:" .. culture_key, "war", false, false, true);
-        end
-        
-        for faction_key, _ in pairs(RHOX_GRUDGEBRINGER_BAD_FACTION) do
-            cm:force_diplomacy("faction:ovn_emp_grudgebringers", "faction:" .. faction_key, "war", true, true, true);
-        end
-        
         local all_factions = cm:model():world():faction_list();
         for i = 0, all_factions:num_items()-1 do
             local faction = all_factions:item_at(i);
-            if faction:is_human() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[faction:culture()] then
+            local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(faction)
+            if alignment == OVN_GRUDGEBRINGERS_ORDER then
+                if faction:is_human() then -- This seems inverted, but this matches the original code, as it checks if they're human and good and then sets true/true/true.
+                    cm:force_diplomacy("faction:ovn_emp_grudgebringers", "faction:" .. faction:name(), "war", true, true, true);
+                else
+                    cm:force_diplomacy("faction:ovn_emp_grudgebringers", "faction:" .. faction:name(), "war", false, false, true);
+                end
+            else 
                 cm:force_diplomacy("faction:ovn_emp_grudgebringers", "faction:" .. faction:name(), "war", true, true, true);
             end
         end;

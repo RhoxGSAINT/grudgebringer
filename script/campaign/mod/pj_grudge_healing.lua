@@ -1,6 +1,6 @@
 PJ_GRUDGE_HEALING = PJ_GRUDGE_HEALING or {}
 local mod = PJ_GRUDGE_HEALING
-
+local grudgebringers_api = get_grudgebringers_api()
 local function round(num)
     return math.floor(num + 0.5)
 end
@@ -78,10 +78,6 @@ local function binding_iter(binding)
         end
     end
 end
-
-mod.friendly_cultures = {} --will be set to RHOX_GRUDGEBRINGER_GOOD_CULTURE at first tick
-
-mod.bad_faction={}--Will be set to RHOX_GRUDGEBRINGER_BAD_FACTION at first tick
 
 mod.add_new_unit = function(unit_cqi, heal_all)
     local faction_cqi = cm:get_faction(cm:get_local_faction_name(true)):command_queue_index()
@@ -274,9 +270,11 @@ mod.update_upgrade_icons = function()
                 is_near_settlement = false
             else
                 local settlement = commander:region():settlement()
+                local faction = commander:region():owning_faction()
+                local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(faction)
                 local x, y = settlement:logical_position_x(), settlement:logical_position_y()
                 local dist_sqr = distance_squared(x, y, commander:logical_position_x(), commander:logical_position_y())
-                if dist_sqr <= 25 and mod.friendly_cultures[commander:region():owning_faction():culture()] and not mod.bad_faction[commander:region():owning_faction():name()] then
+                if dist_sqr <= 25 and alignment == OVN_GRUDGEBRINGERS_ORDER then
                     is_near_settlement = true
                 end
             end
@@ -510,8 +508,6 @@ core:add_listener(
 )
 
 mod.first_tick_cb = function()
-    mod.friendly_cultures = RHOX_GRUDGEBRINGER_GOOD_CULTURE
-    mod.bad_faction = RHOX_GRUDGEBRINGER_BAD_FACTION
     --- When we click the unit upgrade button.
     core:remove_listener('pj_grudge_healing_on_clicked_retrain_button')
     core:add_listener(
