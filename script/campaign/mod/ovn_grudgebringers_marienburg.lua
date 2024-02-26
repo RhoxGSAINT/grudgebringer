@@ -1,5 +1,5 @@
 local grudgebringers_api = get_grudgebringers_api()
-local marienburg_installed = vfs.exists("script/frontend/mod/cataph_teb.lua")
+local marienburg_installed = vfs.exists("script/frontend/mod/hkrul_mar_frontend.lua")
 if marienburg_installed and grudgebringers_api._version == "1.1" then
     -- Add the Marienburg factions to the Order list.
     local marienburg_units = {
