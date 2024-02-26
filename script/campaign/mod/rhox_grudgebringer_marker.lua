@@ -10,6 +10,8 @@ local grudge_marker_key = "grudgebringer_mark"
 
 local grudgebringer_random_encounter_marker = nil --this will act as a marker
 
+local grudgebringers_api = get_grudgebringers_api()
+
 local force_to_faction_name ={
     ["ovn_gru_skaven_force"]="wh2_dlc13_skv_skaven_invasion",
     ["ovn_gru_greenskin_force"]="wh2_dlc13_grn_greenskins_invasion",
@@ -85,7 +87,8 @@ local event_table = {
 		local probability = 3;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --there must be a noble, right? So the chance goes up as the controller is of good culture
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --there must be a noble, right? So the chance goes up as the controller is of good culture
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+5
 		end
@@ -141,7 +144,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -184,7 +188,8 @@ local event_table = {
 		
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --It's a caravan protection, chance of this goes up as this region is owned by not good guys
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --It's a caravan protection, chance of this goes up as this region is owned by not good guys
             out("Rhox Grudge: This region is owned by good faction, lower the probability")
             probability = probability-3
 		end
@@ -238,7 +243,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -279,7 +285,8 @@ local event_table = {
 		local probability = 3;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --chace goes up if this region belongs to the good culture
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --chace goes up if this region belongs to the good culture
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -333,7 +340,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -374,7 +382,8 @@ local event_table = {
 		local probability = 6;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --chance goes up if good culture owns it. Local population
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --chance goes up if good culture owns it. Local population
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -428,7 +437,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -470,7 +480,8 @@ local event_table = {
 		--local probability = 900;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --local fortification, you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --local fortification, you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -523,7 +534,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -566,7 +578,8 @@ local event_table = {
 		--local probability = 600;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --this faction is going to get a Empire wizard
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --this faction is going to get a Empire wizard
             out("Rhox Grudge: This region is owned by Good guys, adding probability")
             probability = probability+3
 		end
@@ -621,7 +634,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -666,7 +680,8 @@ local event_table = {
 		--local probability = 900;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -720,7 +735,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -763,7 +779,8 @@ local event_table = {
 		--local probability = 900;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -817,7 +834,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -860,7 +878,8 @@ local event_table = {
 		--local probability = 900;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -914,7 +933,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -957,7 +977,8 @@ local event_table = {
 		--local probability = 900;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -1012,7 +1033,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -1111,7 +1133,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -1213,7 +1236,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -1258,7 +1282,8 @@ local event_table = {
 		
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --local fortification, you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --local fortification, you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -1312,7 +1337,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -1409,7 +1435,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -1507,7 +1534,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -2000,7 +2028,8 @@ local event_table = {
 		local probability = 0;
 		
 		local player_faction = world_conditions["faction"];
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER and player_faction:at_war_with(enemy_faction) ==false then --you need reinforcements so it'll be zero chance unless it's owned by a good faction.
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+1
 		end
@@ -2061,7 +2090,8 @@ local event_table = {
         
         
         local target_region_interface = cm:get_region(target_region)
-        if target_region_interface:owning_faction() and RHOX_GRUDGEBRINGER_GOOD_CULTURE[target_region_interface:owning_faction():culture()] then
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(target_region_interface:owning_faction(), true, true, true)
+        if target_region_interface:owning_faction() and alignment == OVN_GRUDGEBRINGERS_ORDER then
             local diplo_mod = 1 + math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_contracts_diplo_payload_modifier", "value") / 100); --diplomatic_attitude_adjustment are using 1~6 value you have to use /100
             payload_builder:diplomatic_attitude_adjustment(target_region_interface:owning_faction(), diplo_mod)
         end
@@ -2102,7 +2132,8 @@ local event_table = {
 		local enemy_faction = event_region:owning_faction();   --think of it as a local faction holder
 		
 		
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --increase chance of meeting merchant when hold by good culture
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --increase chance of meeting merchant when hold by good culture
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -2175,7 +2206,8 @@ local event_table = {
 		local enemy_faction = event_region:owning_faction();   --think of it as a local faction holder
 		
 		
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --increase chance of meeting merchant when hold by good culture
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --increase chance of meeting merchant when hold by good culture
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end
@@ -2248,7 +2280,8 @@ local event_table = {
 		local enemy_faction = event_region:owning_faction();   --think of it as a local faction holder
 		
 		
-		if enemy_faction and RHOX_GRUDGEBRINGER_GOOD_CULTURE[enemy_faction:culture()] then --increase chance of meeting merchant when hold by good culture
+        local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(enemy_faction, true, true, true)
+		if enemy_faction and alignment == OVN_GRUDGEBRINGERS_ORDER then --increase chance of meeting merchant when hold by good culture
             out("Rhox Grudge: This region is owned by good faction adding probability")
             probability = probability+3
 		end

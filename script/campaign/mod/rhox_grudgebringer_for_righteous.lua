@@ -4,6 +4,8 @@ local skip_mission_sampling_num = 8
 local skip_mission_table={}
 local real_mousillon
 
+local grudgebringers_api = get_grudgebringers_api()
+
 if common.vfs_exists("script/frontend/mod/moxillon_frontend.lua") then
     real_mousillon = "mixer_msl_mallobaude"
 else
@@ -159,72 +161,6 @@ local grudgebringer_missions ={
 
 local rhox_failed_mission_rewards ={}
 
-RHOX_GRUDGEBRINGER_GOOD_CULTURE ={
-    ["wh2_main_hef_high_elves"] = true,
-    ["wh3_main_cth_cathay"] = true,
-    ["wh3_main_ksl_kislev"] = true,
-    ["wh_dlc05_wef_wood_elves"] = true,
-    ["wh_main_brt_bretonnia"] = true,
-    ["wh_main_dwf_dwarfs"] = true,
-    ["wh_main_emp_empire"] = true,
-    ["mixer_teb_southern_realms"] = true,
-    ["ovn_albion"]=true
-}            
-
-RHOX_GRUDGEBRINGER_BAD_FACTION ={ --culture is good, but the factions that should be considered evil
-    ["wh2_dlc16_wef_drycha"] = true
-}      
-
-local grudgebringer_evil_ll_factions={
-    "wh2_dlc15_grn_bonerattlaz",
-    "wh_main_grn_crooked_moon",
-    "wh_main_grn_greenskins",
-    "wh_main_grn_orcs_of_the_bloody_hand",
-    "wh_main_vmp_vampire_counts",
-    "wh_main_vmp_schwartzhafen",
-    "wh3_main_vmp_caravan_of_blue_roses",
-    "wh3_dlc20_chs_azazel",
-    "wh3_dlc20_chs_festus",
-    "wh3_dlc20_chs_kholek",
-    "wh3_dlc20_chs_sigvald",
-    "wh3_dlc20_chs_valkia",
-    "wh3_main_chs_shadow_legion",
-    "wh3_dlc20_chs_vilitch",
-    "wh_main_chs_chaos",
-    "wh2_dlc17_bst_malagor",
-    "wh2_dlc17_bst_taurox",
-    "wh2_main_bst_shadowgor",
-    "wh_dlc03_bst_beastmen",
-    "wh_dlc08_nor_norsca",
-    "wh_dlc08_nor_wintertooth",
-    "wh2_dlc11_def_the_blessed_dread",
-    "wh2_main_def_cult_of_pleasure",
-    "wh2_main_def_hag_graef",
-    "wh2_main_def_har_ganeth",
-    "wh2_main_def_naggarond",
-    "wh2_twa03_def_rakarth",
-    "wh2_dlc09_skv_clan_rictus",
-    "wh2_main_skv_clan_eshin",
-    "wh2_main_skv_clan_mors",
-    "wh2_main_skv_clan_moulder",
-    "wh2_main_skv_clan_pestilens",
-    "wh2_dlc11_cst_noctilus",
-    "wh2_dlc11_cst_pirates_of_sartosa",
-    "wh2_dlc11_cst_the_drowned",
-    "wh2_dlc11_cst_vampire_coast",
-    "wh3_main_kho_exiles_of_khorne",
-    "wh3_main_nur_poxmakers_of_nurgle",
-    "wh3_main_tze_oracles_of_tzeentch",
-    "wh3_main_sla_seducers_of_slaanesh",
-    "wh3_main_ogr_disciples_of_the_maw",
-    "wh3_main_ogr_goldtooth",
-    "wh3_dlc23_chd_astragoth",
-    "wh3_dlc23_chd_legion_of_azgorh",
-    "wh3_dlc23_chd_zhatan",
-    "wh3_dlc24_tze_the_deceivers"
-}
-
-
 
 
 
@@ -254,6 +190,7 @@ end
 
 local function rhox_trigger_grudgebringer_mission(i)
     local mission_key = grudgebringer_mission_key..tostring(i)
+    out("DEBUG: OVN Grudgebringers: Generating mission " .. mission_key .. " of type " .. tostring(grudgebringer_missions[i].type))
     local mm = mission_manager:new(grudgebringer_faction, mission_key)
     mm:set_mission_issuer("CLAN_ELDERS")
     
@@ -264,11 +201,20 @@ local function rhox_trigger_grudgebringer_mission(i)
         mm:add_condition("requires_victory")
     elseif grudgebringer_missions[i].faction_key then --means it targets faction
         if grudgebringer_missions[i].faction_key == "random" then
-            local target = cm:random_number(#grudgebringer_evil_ll_factions,1)
-            --out("Rhox Grudge: target is: "..grudgebringer_evil_ll_factions[target])
-            local target_faction = grudgebringer_evil_ll_factions[target]
+            local possible_evil_factions = {}
+            local all_factions = cm:model():world():faction_list();
+            for faction_idx = 0, all_factions:num_items()-1 do
+                local faction = all_factions:item_at(faction_idx);
+                local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(faction, false, false, true) -- To avoid balance changes, only check exact faction IDs
+                if faction:is_dead() == false and alignment == OVN_GRUDGEBRINGERS_NOT_ORDER then
+                    out("DEBUG: OVN Grudgebringers: Adding faction " .. faction:name() .. " to mission target random roll list.")
+                    table.insert(possible_evil_factions, faction:name())
+                end
+            end
+            local target = cm:random_number(#possible_evil_factions,1)
+            out("Rhox Grudge: target is: "..possible_evil_factions[target] .. ", rolled " .. tostring(target) .. " of max " .. tostring(#possible_evil_factions))
+            local target_faction = possible_evil_factions[target]
             mm:add_condition("faction "..target_faction);
-            table.remove(grudgebringer_evil_ll_factions, target)
             grudgebringer_missions[i].rolled_target = target_faction
         else
             mm:add_condition("faction "..grudgebringer_missions[i].faction_key);

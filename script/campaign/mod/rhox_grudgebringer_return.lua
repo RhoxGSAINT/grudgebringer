@@ -1,260 +1,58 @@
-local rhox_climate_culture_join_table ={
-    ["climate_chaotic"] ={
-    --nobody
-    },
-    ["climate_desert"] ={
-        ["wh_main_brt_bretonnia"] =true,--crusaders
-        ["wh3_main_cth_cathay"] = true
-    },
-    ["climate_frozen"] ={
-        ["wh2_main_hef_high_elves"] = true, --because of Nagaroth
-        ["wh3_main_ksl_kislev"] = true,
-        ["ovn_albion"] = true
-        
-    },
-    ["climate_island"] ={
-        ["wh2_main_hef_high_elves"] = true,
-        ["ovn_albion"]=true
-    },
-    ["climate_jungle"] ={
-        ["wh2_main_hef_high_elves"] = true,
-        ["wh_main_emp_empire"] = true, --Markus
-        ["wh_main_brt_bretonnia"] = true, --bordaux
-        ["mixer_teb_southern_realms"] = true --Colombo
-    },
-    ["climate_magicforest"] ={
-        ["wh_dlc05_wef_wood_elves"] = true
-    },
-    ["climate_mountain"] ={
-        ["wh_main_dwf_dwarfs"] = true
-    },
-    ["climate_ocean"] ={
-        ["wh2_main_hef_high_elves"] = true
-    },
-    ["climate_savannah"] ={ --almost everybody
-        ["wh3_main_cth_cathay"] = true,
-        ["wh2_main_hef_high_elves"] = true,
-        ["wh_main_emp_empire"] = true,
-        ["wh_main_brt_bretonnia"] = true,
-        ["wh_main_dwf_dwarfs"] = true,
-        ["mixer_teb_southern_realms"] = true
-    },
-    ["climate_temperate"] ={
-        ["wh3_main_cth_cathay"] = true,
-        ["wh_main_emp_empire"] = true,
-        ["wh_main_brt_bretonnia"] = true,
-        ["wh3_main_ksl_kislev"] = true,
-        ["mixer_teb_southern_realms"] = true
-    },
-    ["climate_wasteland"] ={
-        ["wh2_main_hef_high_elves"] = true,--Eltharion
-        ["wh_main_dwf_dwarfs"] = true,
-        ["mixer_teb_southern_realms"] = true --that vampire guy
-    }
-}
-
-
-local rhox_climate_faction_join_table ={
-    ["climate_chaotic"] ={
-    --nobody
-    },
-    ["climate_desert"] ={},
-    ["climate_frozen"] ={},
-    ["climate_island"] ={},
-    ["climate_jungle"] ={},
-    ["climate_magicforest"] ={},
-    ["climate_mountain"] ={
-        ["ovn_mar_house_fooger"] = true
-    },
-    ["climate_ocean"] ={
-        ["ovn_mar_cult_of_manann"] = true
-    },
-    ["climate_savannah"] ={},
-    ["climate_temperate"] ={},
-    ["climate_wasteland"] ={}
-}
-
-local supply_list={  --this is for the initial add
-    "wh_main_emp_art_helstorm_rocket_battery",
-    "wh2_dlc13_emp_inf_huntsmen_0",
-    "wh_main_emp_cav_reiksguard",
-    "wh_main_emp_art_helblaster_volley_gun",
-    "wh_main_dwf_inf_longbeards_1",
-    "wh_main_dwf_art_organ_gun",
-    "wh_main_dwf_inf_hammerers",
-    "wh_main_dwf_inf_ironbreakers",
-    "wh_main_dwf_veh_gyrocopter_0",
-    "wh_dlc05_wef_inf_waywatchers_0",
-    "wh_dlc05_wef_mon_treekin_0",
-    "wh2_dlc16_wef_inf_bladesingers_0",
-    "wh_main_brt_cav_grail_knights",
-    "wh_main_brt_cav_knights_of_the_realm",
-    "wh_dlc07_brt_inf_battle_pilgrims_0",
-    "wh2_dlc10_hef_inf_sisters_of_avelorn_0",
-    "wh2_main_hef_cav_dragon_princes",
-    "wh2_main_hef_inf_phoenix_guard",
-    "wh2_main_hef_inf_swordmasters_of_hoeth_0",
-    "wh3_main_ksl_cav_gryphon_legion_0",
-    "wh3_main_ksl_cav_war_bear_riders_1",
-    "wh3_main_cth_art_fire_rain_rocket_battery_0",
-    "wh3_main_cth_inf_dragon_guard_0",
-    "wh3_main_cth_inf_dragon_guard_crossbowmen_0",
-    "wh3_main_ogr_inf_maneaters_0",
-    "wh3_main_ogr_cav_mournfang_cavalry_0",
-    "wh_main_emp_inf_halberdiers",
-    "wh_main_emp_cav_outriders_0",
-    "wh3_main_ksl_inf_streltsi_0",
-    --"wh3_main_ksl_inf_tzar_guard_0",
-    --"wh3_main_ksl_inf_armoured_kossars_0",
-    "wh3_main_ksl_inf_ice_guard_0"
-}
-
-local cataph_supply_list={
-    "teb_pikemen",
-    "teb_conqui_adventurers",
-    "teb_pavisiers",
-    "teb_galloper",
-    "teb_encarmine"
-}
-
-local marienburg_supply_list={
-    "hkrul_mar_riverwarden",
-    "hkrul_mar_knights_griffon",
-    "hkrul_mar_sons_of_manann",
-    "snek_hkrul_mar_landship"
-}
-
-
-local albion_supply_list={
-    "albion_hearthguard_grudgebringer",
-    "albion_chariot_grudgebringer",
-    "albion_giant_grudgebringer",
-    "albion_huntresses_grudgebringer"
-}
-
-local rhox_culture_unit_join_table ={
-    ["wh2_main_hef_high_elves"] ={
-        {name = "wh2_dlc10_hef_inf_sisters_of_avelorn_0", min =1, max=1},
-        {name = "wh2_main_hef_inf_phoenix_guard", min =1, max=1},
-        {name = "wh2_main_hef_inf_swordmasters_of_hoeth_0", min =1, max=1},
-        {name = "wh2_main_hef_cav_dragon_princes", min =1, max=1}
-    },
-    ["wh3_main_cth_cathay"] ={
-        {name = "wh3_main_cth_inf_dragon_guard_0", min =1, max=1},
-        {name = "wh3_main_cth_inf_dragon_guard_crossbowmen_0", min =1, max=1},
-        {name = "wh3_main_cth_art_fire_rain_rocket_battery_0", min =1, max=1}
-    },
-    ["wh3_main_ksl_kislev"] ={
-        {name = "wh3_main_ksl_cav_war_bear_riders_1", min =1, max=1},
-        --{name = "wh3_main_ksl_inf_tzar_guard_0", min =1, max=1},
-        {name = "wh3_main_ksl_cav_gryphon_legion_0", min =1, max=1},   
-        {name = "wh3_main_ksl_inf_ice_guard_0", min =1, max=1},
-        {name = "wh3_main_ksl_inf_streltsi_0", min =1, max=1}
-    },
-    ["wh_dlc05_wef_wood_elves"] ={
-        {name = "wh2_dlc16_wef_inf_bladesingers_0", min =1, max=1},
-        {name = "wh_dlc05_wef_inf_waywatchers_0", min =1, max=1},
-        {name = "wh_dlc05_wef_mon_treekin_0", min =1, max=1}   
-    },
-    ["wh_main_brt_bretonnia"] ={
-        {name = "wh_main_brt_cav_grail_knights", min =1, max=1},
-        {name = "wh_dlc07_brt_inf_battle_pilgrims_0", min =1, max=2},
-        {name = "wh_main_brt_cav_knights_of_the_realm", min =1, max=1}   
-    },
-    ["wh_main_dwf_dwarfs"] ={
-        {name = "wh_main_dwf_inf_ironbreakers", min =1, max=1},
-        {name = "wh_main_dwf_inf_hammerers", min =1, max=1},
-        {name = "wh_main_dwf_inf_longbeards_1", min =1, max=1},
-        {name = "wh_main_dwf_veh_gyrocopter_0", min =1, max=1},
-        {name = "wh_main_dwf_art_organ_gun", min =1, max=1}   
-    },
-    ["wh_main_emp_empire"] ={
-        {name = "wh2_dlc13_emp_inf_huntsmen_0", min =1, max=2},
-        {name = "wh_main_emp_cav_reiksguard", min =1, max=1},
-        {name = "wh_main_emp_art_helblaster_volley_gun", min =1, max=1},
-        {name = "wh_main_emp_art_helstorm_rocket_battery", min =1, max=1}   
-    },
-    ["mixer_teb_southern_realms"] ={ 
-        {name = "teb_pikemen", min =2, max=2},
-        {name = "teb_conqui_adventurers", min =2, max=2},
-        {name = "teb_pavisiers", min =2, max=2},
-        {name = "teb_galloper", min =1, max=1},
-        {name = "teb_encarmine", min =1, max=1}
-    },
-    ["ovn_albion"] ={ 
-        {name = "albion_hearthguard_grudgebringer", min =1, max=2},
-        {name = "albion_chariot_grudgebringer", min =1, max=2},
-        {name = "albion_giant_grudgebringer", min =1, max=1},
-        {name = "albion_huntresses_grudgebringer", min =1, max=1}
-    }
-}
-
-
-local vanilla_teb_units ={
-    {name = "wh3_main_ogr_inf_maneaters_0", min =1, max=1},
-    {name = "wh3_main_ogr_cav_mournfang_cavalry_0", min =1, max=1},
-    {name = "wh_main_emp_inf_halberdiers", min =2, max=2},
-    {name = "wh_main_emp_cav_outriders_0", min =2, max=2}
-}
-
-
-local marienburg_units ={
-    {name = "snek_hkrul_mar_landship", min =1, max=1},
-    {name = "hkrul_mar_knights_griffon", min =1, max=1},
-    {name = "hkrul_mar_riverwarden", min =2, max=2},
-    {name = "hkrul_mar_sons_of_manann", min =2, max=2}
-}
-
-local marienburg_factions={
-    wh_main_emp_marienburg=true,
-    ovn_mar_house_den_euwe=true,
-    ovn_mar_cult_of_manann=true,
-    ovn_mar_house_fooger=true
-}
-
-
 local rhox_grudge_missing_ror_chance_settlement = 5
 
 local rhox_faction_candidate_table={}
 local rhox_target_settlement_name
 
-
+local grudgebringers_api = get_grudgebringers_api()
 
 
 local function rhox_find_5_faction_for_climate(character, climate)
     rhox_faction_candidate_table={} --initialize it
-    local culture_check_table = rhox_climate_culture_join_table[climate]
-    local faction_check_table = rhox_climate_faction_join_table[climate]
     local faction_list = cm:model():world():faction_list();
-	
-	if not culture_check_table then
-        return --it means the climate was unxepected 
-	end
 	
 	local pos_x = character:logical_position_x()
 	local pos_y = character:logical_position_y()
 	
 	for i = 0, faction_list:num_items() - 1 do
 		local current_faction = faction_list:item_at(i);
-		local distance_to_closest_region = 99999999
-        if (culture_check_table[current_faction:culture()] or faction_check_table[current_faction:name()]) and current_faction:is_dead() == false and not RHOX_GRUDGEBRINGER_BAD_FACTION[current_faction:name()] then
-            local region_list = current_faction:region_list()
-            for k = 0, region_list:num_items() - 1 do
-                local current_settlement = region_list:item_at(k):settlement();
-                local reg_pos_x = current_settlement:logical_position_x();
-                local reg_pos_y = current_settlement:logical_position_y();
-                
-                local distance = distance_squared(pos_x, pos_y, reg_pos_x, reg_pos_y);
-                
-                if distance < distance_to_closest_region then
-                    distance_to_closest_region = distance
+        local alignment, possible_units, climate_compatibility = grudgebringers_api:grudgebringer_get_faction_info(current_faction, true, true, true)
+        local distance_to_closest_region = nil
+        out("DEBUG: OVN Grudgebringers: Faction " .. current_faction:name() .. " is " .. tostring(alignment))
+        out("DEBUG: OVN Grudgebringers: Faction " .. current_faction:name() .. " climate suitability for " .. climate .. " is " .. current_faction:get_climate_suitability(climate))
+        local climate_compatible = current_faction:get_climate_suitability(climate) == "suitability_good"
+        if RHOX_GRUDGEBRINGER_MCT.climate_return == true then -- We want to check the manual lookup tables instead of relying on vanilla game suitability.
+            climate_compatible = false
+            if climate_compatibility ~= nil then
+                for _, compatible_climate in pairs(climate_compatibility) do
+                    if climate == compatible_climate then
+                        climate_compatible = true
+                        break
+                    end
                 end
             end
-
+        end
+        if climate_compatible then
+            if alignment ~= nil and possible_units ~= nil then -- Don't try to return to anything we don't have a unit list or alignment for.
+                if current_faction:is_dead() == false and alignment == OVN_GRUDGEBRINGERS_ORDER then
+                    local region_list = current_faction:region_list()
+                    for k = 0, region_list:num_items() - 1 do
+                        local current_settlement = region_list:item_at(k):settlement();
+                        local reg_pos_x = current_settlement:logical_position_x();
+                        local reg_pos_y = current_settlement:logical_position_y();
+                        
+                        local distance = distance_squared(pos_x, pos_y, reg_pos_x, reg_pos_y);
+                        if distance_to_closest_region == nil then
+                            distance_to_closest_region = distance
+                        elseif distance < distance_to_closest_region then
+                            distance_to_closest_region = distance
+                        end
+                    end
+                end
+            end
 		end
-		if distance_to_closest_region ~= 99999999 then --if it was 99999999, it means culture wasn't fit, faction is dead, etc..
-            --out("Rhox Grudge Looked at: "..current_faction:name())
-            --out("Rhox Grudge Distance is: "..distance_to_closest_region)
+		if distance_to_closest_region ~= nil then --if it was nil, faction did not pass muster for a return
+            out("Rhox Grudge Looked at: "..current_faction:name())
+            out("Rhox Grudge Distance is: ".. tostring(distance_to_closest_region))
             local x ={
                 name= current_faction:name(),
                 distance= distance_to_closest_region
@@ -302,19 +100,15 @@ core:add_listener(
         end
         
         
-        
-        
-        
         if character:faction():is_human() ==false or not cm:is_factions_turn_by_key(character:faction():name()) then --it's not human or it's enemy's turn so just give the item to the most closest guy and begone
             out("Rhox Grudge climate: Grudge bringer was not human or it wasn't his turn")
             local target_faction =  cm:get_faction(rhox_faction_candidate_table[1].name)
             cm:transfer_region_to_faction(rhox_target_settlement_name, rhox_faction_candidate_table[1].name)--return the place to the most closest guy
             
-            
-            local target_unit_table = rhox_culture_unit_join_table[target_faction:culture()]
+            local _, target_unit_table, _ = grudgebringers_api:grudgebringer_get_faction_info(target_faction, true, true, true)
             local ti = cm:random_number(#target_unit_table, 1)
-            local max_unit = target_unit_table[ti].max+character:faction():bonus_values():scripted_value("rhox_grudge_settlement_bonus_unit_number_modifier", "value")
-            cm:add_units_to_faction_mercenary_pool(character:faction():command_queue_index(), target_unit_table[ti].name, cm:random_number(max_unit, target_unit_table[ti].min))
+            local max_unit = (target_unit_table[ti]["max"] or OVN_GRUDGEBRINGERS_DEFAULT_UNIT_MAX) + character:faction():bonus_values():scripted_value("rhox_grudge_settlement_bonus_unit_number_modifier", "value")
+            cm:add_units_to_faction_mercenary_pool(character:faction():command_queue_index(), target_unit_table[ti].name, cm:random_number(max_unit, target_unit_table[ti]["min"] or OVN_GRUDGEBRINGERS_DEFAULT_UNIT_MIN))
             
             if target_faction:is_human() then
                 local incident_builder = cm:create_incident_builder("rhox_grudgebringer_get_settlement_from_grudgebringer")
@@ -344,14 +138,7 @@ core:add_listener(
 		local payload_builder = cm:create_payload();
         for i=1,dilemma_choice_count do
             local target_faction =  cm:get_faction(rhox_faction_candidate_table[i].name)
-            local target_unit_table = rhox_culture_unit_join_table[target_faction:culture()]
-            if target_faction:subculture() == "wh_main_sc_teb_teb" then --special case for TEB subculture
-                target_unit_table = vanilla_teb_units
-            elseif target_faction:culture() == "mixer_teb_southern_realms" and not vfs.exists("script/frontend/mod/cataph_teb.lua") then --it's using mixer TEB culture but not Cataph's one, I don't know whether there is a case for that but just to be safe
-                target_unit_table = vanilla_teb_units
-            elseif marienburg_factions[target_faction:name()] and vfs.exists("script/frontend/mod/hkrul_mar_frontend.lua") then --Marienburg mod exists and we're returning to Marienburg
-                target_unit_table = marienburg_units
-            end
+            local _, target_unit_table, _ = grudgebringers_api:grudgebringer_get_faction_info(target_faction, true, true, true)
             local ti = cm:random_number(#target_unit_table, 1)
             
             
@@ -378,10 +165,10 @@ core:add_listener(
                 end
                 
             else
-                local max_unit = target_unit_table[ti].max+math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_settlement_bonus_unit_number_modifier", "value"))
+                local max_unit = (target_unit_table[ti]["max"] or OVN_GRUDGEBRINGERS_DEFAULT_UNIT_MAX)+math.floor(character:faction():bonus_values():scripted_value("rhox_grudge_settlement_bonus_unit_number_modifier", "value"))
                 out("Rhox Grudge: Giving normal units, Max unit with modifier applied ".. max_unit)
                 out("Rhox Gurdge: Unit name: " ..target_unit_table[ti].name)
-                payload_builder:add_mercenary_to_faction_pool(target_unit_table[ti].name, cm:random_number(max_unit, target_unit_table[ti].min))
+                payload_builder:add_mercenary_to_faction_pool(target_unit_table[ti].name, cm:random_number(max_unit, target_unit_table[ti]["min"] or OVN_GRUDGEBRINGERS_DEFAULT_UNIT_MIN))
             end
             
             dilemma_builder:add_choice_payload(choice_string[i], payload_builder);
@@ -467,85 +254,4 @@ core:add_listener(
         rhox_check_ror_rewards(context:faction())--get RoRs
     end,
     true
-);
-
-
-
-
-cm:add_first_tick_callback_new(
-    function()
-        local faction = cm:get_faction("ovn_emp_grudgebringers")
-        for k, unit in pairs(supply_list) do
-            cm:add_unit_to_faction_mercenary_pool(
-                faction,
-                unit,
-                "rhox_grudge_return_recruit",
-                0,
-                100,
-                20,
-                0,
-                "",
-                "",
-                "",
-                true,
-                "rhox_grudge_"..unit
-            )
-        end
-        if vfs.exists("script/frontend/mod/cataph_teb.lua") then --you have TEB enabled
-            for k, unit in pairs(cataph_supply_list) do
-                cm:add_unit_to_faction_mercenary_pool(
-                    faction,
-                    unit,
-                    "rhox_grudge_return_recruit",
-                    0,
-                    100,
-                    20,
-                    0,
-                    "",
-                    "",
-                    "",
-                    true,
-                    "rhox_grudge_"..unit
-                )
-            end
-        end
-        
-        if vfs.exists("script/frontend/mod/hkrul_mar_frontend.lua") then --you have Marienburg enabled
-            for k, unit in pairs(marienburg_supply_list) do
-                cm:add_unit_to_faction_mercenary_pool(
-                    faction,
-                    unit,
-                    "rhox_grudge_return_recruit",
-                    0,
-                    100,
-                    20,
-                    0,
-                    "",
-                    "",
-                    "",
-                    true,
-                    "rhox_grudge_"..unit
-                )
-            end
-        end
-        
-        if vfs.exists("script/frontend/mod/ovn_albion_frontend.lua") then --you have Albion enabled
-            for k, unit in pairs(albion_supply_list) do
-                cm:add_unit_to_faction_mercenary_pool(
-                    faction,
-                    unit,
-                    "rhox_grudge_return_recruit",
-                    0,
-                    100,
-                    20,
-                    0,
-                    "",
-                    "",
-                    "",
-                    true,
-                    "rhox_grudge_"..unit
-                )
-            end
-        end
-    end
 );

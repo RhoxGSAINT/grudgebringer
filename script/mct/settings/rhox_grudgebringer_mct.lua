@@ -18,6 +18,10 @@ all_hero:set_default_value(false)
 all_hero:set_text("Enable all heroes", true)
 all_hero:set_tooltip_text("By turning this option on, you'll gain access to all the Gurdgebringer faction's Legendary heroes via missions. If you turn it off, you'll gain one mage hero and a non-mage hero via a dilemma.", true)
 
+local climate_return = mct_mod:add_new_option("rhox_grudge_climate_return", "checkbox")
+climate_return:set_default_value(true)
+climate_return:set_text("Use manual climate suitability determination for settlement returnee candidates", true)
+climate_return:set_tooltip_text("By turning this option on, returning settlements as the Grudgebringers will use manually defined API information for factions/subcultures/cultures to determine who can receive the settlement. If you turn it off, climate suitability will be checked against the game database automatically when deciding who can receive a settlement.", true)
 
 
 
