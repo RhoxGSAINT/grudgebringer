@@ -271,7 +271,7 @@ mod.update_upgrade_icons = function()
             else
                 local settlement = commander:region():settlement()
                 local faction = commander:region():owning_faction()
-                local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(faction)
+                local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(faction, true, true, true)
                 local x, y = settlement:logical_position_x(), settlement:logical_position_y()
                 local dist_sqr = distance_squared(x, y, commander:logical_position_x(), commander:logical_position_y())
                 if dist_sqr <= 25 and alignment == OVN_GRUDGEBRINGERS_ORDER then

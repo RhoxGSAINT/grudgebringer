@@ -8,7 +8,10 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh2_dlc16_wef_inf_bladesingers_0"},
         {name = "wh_dlc05_wef_inf_waywatchers_0"},
         {name = "wh_dlc05_wef_mon_treekin_0"}
-    }
+    },
+	{
+		"climate_magicforest"
+	}
 )
 
 grudgebringers_api:grudgebringer_add_faction_or_culture(
@@ -18,7 +21,13 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh_main_brt_cav_grail_knights"},
         {name = "wh_dlc07_brt_inf_battle_pilgrims_0", max=2},
         {name = "wh_main_brt_cav_knights_of_the_realm"}   
-    }
+    },
+	{
+		"climate_desert", 
+		"climate_jungle",
+		"climate_savannah",
+		"climate_temperate"
+	}
 )
 
 grudgebringers_api:grudgebringer_add_faction_or_culture(
@@ -28,7 +37,12 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh3_main_cth_inf_dragon_guard_0"},
         {name = "wh3_main_cth_inf_dragon_guard_crossbowmen_0"},
         {name = "wh3_main_cth_art_fire_rain_rocket_battery_0"}
-    }
+    },
+	{
+		"climate_desert",
+		"climate_savannah",
+		"climate_temperate"
+	}
 )
 
 grudgebringers_api:grudgebringer_add_faction_or_culture(
@@ -39,7 +53,12 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh_main_emp_cav_reiksguard"},
         {name = "wh_main_emp_art_helblaster_volley_gun"},
         {name = "wh_main_emp_art_helstorm_rocket_battery"}   
-    }
+    },
+	{
+		"climate_jungle",
+		"climate_savannah",
+		"climate_temperate"
+	}
 )
 
 grudgebringers_api:grudgebringer_add_faction_or_culture(
@@ -51,7 +70,12 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh_main_dwf_inf_longbeards_1"},
         {name = "wh_main_dwf_veh_gyrocopter_0"},
         {name = "wh_main_dwf_art_organ_gun"}
-    }
+    },
+	{
+		"climate_mountain",
+		"climate_wasteland",
+		"climate_savannah"
+	}
 )
 
 grudgebringers_api:grudgebringer_add_faction_or_culture(
@@ -62,7 +86,15 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh2_main_hef_inf_phoenix_guard"},
         {name = "wh2_main_hef_inf_swordmasters_of_hoeth_0"},
         {name = "wh2_main_hef_cav_dragon_princes"}
-    }
+    },
+	{
+		"climate_frozen",
+		"climate_island",
+		"climate_jungle",
+		"climate_ocean",
+		"climate_savannah",
+		"climate_wasteland"
+	}
 )
 
 grudgebringers_api:grudgebringer_add_faction_or_culture(
@@ -73,7 +105,11 @@ grudgebringers_api:grudgebringer_add_faction_or_culture(
         {name = "wh3_main_ksl_cav_gryphon_legion_0"},   
         {name = "wh3_main_ksl_inf_ice_guard_0"},
         {name = "wh3_main_ksl_inf_streltsi_0"}
-    }
+    },
+	{
+		"climate_frozen",
+		"climate_temperate"
+	}
 )
 
 -- Vanilla game factions/cultures we consider Not Order.

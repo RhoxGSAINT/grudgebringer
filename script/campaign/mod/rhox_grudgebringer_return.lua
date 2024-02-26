@@ -85,13 +85,25 @@ local function rhox_find_5_faction_for_climate(character, climate)
 	
 	for i = 0, faction_list:num_items() - 1 do
 		local current_faction = faction_list:item_at(i);
-        local alignment, possible_units = grudgebringers_api:grudgebringer_get_faction_info(current_faction)
+        local alignment, possible_units, climate_compatibility = grudgebringers_api:grudgebringer_get_faction_info(current_faction, true, true, true)
         local distance_to_closest_region = nil
         out("DEBUG: OVN Grudgebringers: Faction " .. current_faction:name() .. " is " .. tostring(alignment))
         out("DEBUG: OVN Grudgebringers: Faction " .. current_faction:name() .. " climate suitability for " .. climate .. " is " .. current_faction:get_climate_suitability(climate))
-        if current_faction:get_climate_suitability(climate) == "suitability_good" then -- TODO: Turn this feature into a MCT toggle system
+        local climate_compatible = current_faction:get_climate_suitability(climate) == "suitability_good"
+        if RHOX_GRUDGEBRINGER_MCT.climate_return == true then -- We want to check the manual lookup tables instead of relying on vanilla game suitability.
+            climate_compatible = false
+            if climate_compatibility ~= nil then
+                for _, compatible_climate in pairs(climate_compatibility) do
+                    if climate == compatible_climate then
+                        climate_compatible = true
+                        break
+                    end
+                end
+            end
+        end
+        if climate_compatible then
             if alignment ~= nil and possible_units ~= nil then -- Don't try to return to anything we don't have a unit list or alignment for.
-                if current_faction:is_dead() == false and alignment == OVN_GRUDGEBRINGERS_ORDER then -- TODO: make returning to order or not order a MCT config
+                if current_faction:is_dead() == false and alignment == OVN_GRUDGEBRINGERS_ORDER then
                     local region_list = current_faction:region_list()
                     for k = 0, region_list:num_items() - 1 do
                         local current_settlement = region_list:item_at(k):settlement();
@@ -163,7 +175,7 @@ core:add_listener(
             local target_faction =  cm:get_faction(rhox_faction_candidate_table[1].name)
             cm:transfer_region_to_faction(rhox_target_settlement_name, rhox_faction_candidate_table[1].name)--return the place to the most closest guy
             
-            local _, target_unit_table = grudgebringers_api:grudgebringer_get_faction_info(target_faction)
+            local _, target_unit_table, _ = grudgebringers_api:grudgebringer_get_faction_info(target_faction, true, true, true)
             local ti = cm:random_number(#target_unit_table, 1)
             local max_unit = (target_unit_table[ti]["max"] or OVN_GRUDGEBRINGERS_DEFAULT_UNIT_MAX) + character:faction():bonus_values():scripted_value("rhox_grudge_settlement_bonus_unit_number_modifier", "value")
             cm:add_units_to_faction_mercenary_pool(character:faction():command_queue_index(), target_unit_table[ti].name, cm:random_number(max_unit, target_unit_table[ti]["min"] or OVN_GRUDGEBRINGERS_DEFAULT_UNIT_MIN))
@@ -196,7 +208,7 @@ core:add_listener(
 		local payload_builder = cm:create_payload();
         for i=1,dilemma_choice_count do
             local target_faction =  cm:get_faction(rhox_faction_candidate_table[i].name)
-            local _, target_unit_table = grudgebringers_api:grudgebringer_get_faction_info(target_faction)
+            local _, target_unit_table, _ = grudgebringers_api:grudgebringer_get_faction_info(target_faction, true, true, true)
             local ti = cm:random_number(#target_unit_table, 1)
             
             

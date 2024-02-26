@@ -193,7 +193,7 @@ function rhox_attempt_to_issue_contracts(faction_key)
 	
 	for i = 0, factions_met:num_items() - 1 do
 		local current_faction = factions_met:item_at(i);
-		local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(current_faction)
+		local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(current_faction, true, true, true)
 		
 		if not faction:at_war_with(current_faction) and not current_faction:is_dead() and not current_faction:is_human() and current_faction:has_home_region() and alignment == OVN_GRUDGEBRINGERS_ORDER then --have to be good culture added to the condition
 			if faction_has_home_region then
@@ -264,7 +264,7 @@ function rhox_attempt_to_issue_contracts(faction_key)
 		
 		for j = 0, enemies:num_items() - 1 do
 			local current_enemy = enemies:item_at(j);
-			local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(current_enemy)
+			local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(current_enemy, true, true, true)
 			if not current_enemy:is_dead() and not current_enemy:military_force_list():is_empty() and not current_enemy:has_effect_bundle("wh3_main_bundle_realm_factions") and alignment == OVN_GRUDGEBRINGERS_NOT_ORDER then
 				table.insert(filtered_enemies, current_enemy);
 			end;
@@ -278,7 +278,7 @@ function rhox_attempt_to_issue_contracts(faction_key)
 			
 			for j = 0, selected_issuing_faction:factions_met():num_items() - 1 do
 				local current_faction_met = selected_issuing_faction:factions_met():item_at(j);
-				local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(current_faction_met)
+				local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(current_faction_met, true, true, true)
 				-- filter out any human, dead or vassal/master factions
 				if not current_faction_met:is_human() and not current_faction_met:is_dead() and not current_faction_met:has_effect_bundle("wh3_main_bundle_realm_factions") and not current_faction_met:has_effect_bundle("wh3_main_bundle_rift_factions") and not selected_issuing_faction:is_vassal_of(current_faction_met) and not current_faction_met:is_vassal_of(selected_issuing_faction) and alignment == OVN_GRUDGEBRINGERS_NOT_ORDER then
 					local current_faction_relation = selected_issuing_faction:diplomatic_attitude_towards(current_faction_met:name());

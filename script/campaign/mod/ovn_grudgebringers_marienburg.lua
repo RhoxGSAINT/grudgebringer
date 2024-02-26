@@ -1,6 +1,6 @@
 local grudgebringers_api = get_grudgebringers_api()
 local marienburg_installed = vfs.exists("script/frontend/mod/cataph_teb.lua")
-if marienburg_installed then
+if marienburg_installed and grudgebringers_api._version == "1.1" then
     -- Add the Marienburg factions to the Order list.
     local marienburg_units = {
         {name = "snek_hkrul_mar_landship"},
@@ -21,11 +21,17 @@ if marienburg_installed then
     grudgebringers_api:grudgebringer_add_faction_or_culture(
         "ovn_mar_cult_of_manann",
         OVN_GRUDGEBRINGERS_ORDER,
-        marienburg_units
+        marienburg_units,
+        {
+            "ovn_mar_cult_of_manann"
+        }
     )
     grudgebringers_api:grudgebringer_add_faction_or_culture(
         "ovn_mar_house_fooger",
         OVN_GRUDGEBRINGERS_ORDER,
-        marienburg_units
+        marienburg_units,
+        {
+            "climate_mountain"
+        }
     )
 end

@@ -255,7 +255,7 @@ local function rhox_trigger_grudgebringer_mission(i)
             local all_factions = cm:model():world():faction_list();
             for faction_idx = 0, all_factions:num_items()-1 do
                 local faction = all_factions:item_at(faction_idx);
-                local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(faction, nil, nil, true) -- To avoid balance changes, only check exact faction IDs
+                local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(faction, false, false, true) -- To avoid balance changes, only check exact faction IDs
                 if faction:is_dead() == false and alignment == OVN_GRUDGEBRINGERS_NOT_ORDER then
                     out("DEBUG: OVN Grudgebringers: Adding faction " .. faction:name() .. " to mission target random roll list.")
                     table.insert(possible_evil_factions, faction:name())

@@ -94,7 +94,7 @@ local function new_game_startup()
         local all_factions = cm:model():world():faction_list();
         for i = 0, all_factions:num_items()-1 do
             local faction = all_factions:item_at(i);
-            local alignment, _ = grudgebringers_api:grudgebringer_get_faction_info(faction)
+            local alignment, _, _ = grudgebringers_api:grudgebringer_get_faction_info(faction, true, true, true)
             if alignment == OVN_GRUDGEBRINGERS_ORDER then
                 if faction:is_human() then -- This seems inverted, but this matches the original code, as it checks if they're human and good and then sets true/true/true.
                     cm:force_diplomacy("faction:ovn_emp_grudgebringers", "faction:" .. faction:name(), "war", true, true, true);
@@ -270,7 +270,9 @@ core:add_listener(
 
 RHOX_GRUDGEBRINGER_MCT={
     ror_skip = 8,
-    all_hero = false
+    all_hero = false,
+    climate_return = true
+
 }
 
 
@@ -290,6 +292,9 @@ core:add_listener(
         
         local mct_all_hero_option = my_mod:get_option_by_key("rhox_grudge_all_hero")
         RHOX_GRUDGEBRINGER_MCT.all_hero = mct_all_hero_option:get_finalized_setting()
+
+        local mct_climate_return_option = my_mod:get_option_by_key("rhox_grudge_climate_return")
+        RHOX_GRUDGEBRINGER_MCT.climate_return = mct_climate_return_option:get_finalized_setting()
         
         
 
