@@ -1,0 +1,20 @@
+2024/JAN/31 Rhox
+- Removed unbreakable bullet point from black avengers
+- Removed Sunfang Vortex from Grudgebringers' Runefang
+2024/JAN/20 Rhox
+- Now script won't break even if an unexpected climate comes in
+
+2024/JAN/17 -Rhox 2
+- Fixed the script break occuring at RoC campaign
+- AI now does not get -10% replenish bonus as they don't know how to use manual recovery or transferring units to camp
+
+2024/JAN/17 -Rhox
+- Changed Morgan's force type to HORDE from CHARACTER_BOUND_HORDE as it will cause CTD when only Morgan is defeated while the force is not
+
+2024/JAN/16 -Rhox
+- Applied PJ's healing script fix. Now it wouldn't cause CTD even though players have replaced general
+- Now Grudgebringer has access to Empire lord from the beginning but is limited to one force. Use multi-army submod for more armies
+- Now Morgan is character_bound_horde and the other guys are just horde. So you can now replace general if they're not Morgan 
+
+2023/12/18 Lingling
+- changed the melee and missile weapon building damage multipliers to be in line with current game rules

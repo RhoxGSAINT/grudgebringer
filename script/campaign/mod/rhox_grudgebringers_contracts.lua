@@ -55,7 +55,7 @@ cm:add_first_tick_callback(
             
 		end
 
-        if cm:get_faction(grudgebringer_faction):is_human() then
+        if cm:get_faction(grudgebringer_faction) and cm:get_faction(grudgebringer_faction):is_human() then
             rhox_grudgebringer_setup_contracts()
         end
 	end
@@ -63,7 +63,7 @@ cm:add_first_tick_callback(
 
 cm:add_first_tick_callback_new(
 	function()
-		if cm:get_faction(grudgebringer_faction):is_human() then
+		if cm:get_faction(grudgebringer_faction) and cm:get_faction(grudgebringer_faction):is_human() then
             rhox_reset_contracts_timer(grudgebringer_faction); 
 		end
 	end
@@ -413,7 +413,7 @@ function rhox_attempt_to_issue_contracts(faction_key)
 			if random_payload == 1 then
 				payload = payload .. "effect_bundle {bundle_key wh_main_payload_morale_army;turns 10;}";
 			elseif random_payload == 2 then
-				payload = payload .. "add_ancillary_to_faction_pool {ancillary_key " .. get_random_ancillary_key_for_faction(faction_key, nil, "rare") .. ";}";
+				payload = payload .. "add_ancillary_to_faction_pool {ancillary_key " .. rhox_grudgebringer_get_random_item() .. ";}";
 			else --will never reach here
 			end;
 			
@@ -422,7 +422,7 @@ function rhox_attempt_to_issue_contracts(faction_key)
                 local effect_bundle_key, ancillary_key = rhox_get_missing_ror_bundle()
                 payload = payload .. "effect_bundle {bundle_key "..effect_bundle_key..";turns 2;}";                
             end
-			
+			out("Rhox Grudge: Payload: ".. payload)
 			cm:add_custom_pending_mission_from_string(
 				faction,
 				selected_issuing_faction,

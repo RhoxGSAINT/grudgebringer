@@ -117,7 +117,7 @@ mod.show_upgrade_icon = function(unit_index, button_state, button_tooltip, are_a
         campaign,
         "pj_grudge_healing_button"
     )
-    
+
     if not our_upgradable_icon then
         our_upgradable_icon = UIComponent(campaign:CreateComponent("pj_grudge_healing_button",
             "ui/templates/square_small_button"))
@@ -227,7 +227,7 @@ mod.update_upgrade_icons = function()
 
             -- loop through all the unit cards
             local unit_index = 0
-            
+
             ---@type CA_CHAR
             local char = cm:get_character_by_cqi(mod.commander_cqi)
             if not char:has_military_force() or not char or not char:faction() then
@@ -239,21 +239,26 @@ mod.update_upgrade_icons = function()
                 --out("Rhox Grudge: Factin name isn't Grudgebringers: " ..char:faction():name())
                 return
             end
-            
-            
-            
+
+
+
 
             local region = char:region()
             local province_name = not region:is_null_interface() and region:province_name()
             local unit_list = char:military_force():unit_list()
             local army_size = unit_list:num_items()
             --out("Rhox Grudge: Army size: ".. army_size)
-            
-            
+
+
             local num_agents = char:military_force():character_list():num_items()-1 --because of generals
             --out("Rhox Grudge: Agent number: ".. num_agents)
-            
-            
+						for _, char in model_pairs(char:military_force():character_list()) do
+							if char:character_type("colonel") then
+								num_agents = num_agents - 1
+							end
+						end
+
+
             local local_faction_obj = cm:get_local_faction(true)
             local faction_name = cm:get_local_faction_name(true)
 
@@ -327,9 +332,9 @@ mod.update_upgrade_icons = function()
                     real_timer.unregister("pj_grudge_healing_callback_id_2")
                     break
                 end
-				
-				
-                
+
+
+
                 if army_size > unit_index then
                     local army_unit_index = unit_index
                     if army_unit_index > 0 then
@@ -355,7 +360,7 @@ mod.update_upgrade_icons = function()
                             unit_cost)
 						total_replenish_cost = total_replenish_cost+ replenish_cost
 
-                        
+
                         local new_tooltip_text = common.get_localised_string("pj_healing_replenishment_string")
                         if unit_to_upgrade:percentage_proportion_of_full_strength() ~= 100 then
                             new_tooltip_text = new_tooltip_text .. common.get_localised_string("pj_healing_replenishment_money") .. replenish_cost .. "."
@@ -547,7 +552,7 @@ mod.first_tick_cb = function()
             if not unit then return end
 
 			mod.add_new_unit(unit:command_queue_index(), false)
-            
+
         end,
         true
     )
@@ -573,7 +578,7 @@ mod.first_tick_cb = function()
             local unit = commander:military_force():unit_list():item_at(0)
 
 			mod.add_new_unit(unit:command_queue_index(), true)
-            
+
         end,
         true
     )
@@ -593,7 +598,7 @@ mod.first_tick_cb = function()
         true
     )
 
-    
+
     core:remove_listener("pj_grudge_healing_update_upgrade_icons_trigger")
     core:add_listener(
         "pj_grudge_healing_update_upgrade_icons_trigger",
@@ -643,7 +648,7 @@ mod.first_tick_cb = function()
                 real_timer.unregister("pj_grudge_healing_callback_id_2")
                 mod.commander_cqi = nil
                 --mod.commander_cqi = char:cqi() --rhox edit: we need it to check whether we're creating the ui for the right guys
-                
+
                 --out("Rhox Grudge: Non-player character selected. Setting the value to nil")
                 return
             end

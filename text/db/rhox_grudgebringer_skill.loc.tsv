@@ -97,3 +97,5 @@ character_skills_localised_description_ceridan_eagle	Great Eagles are the firm a
 character_skills_localised_name_ceridan_eagle	Great Eagle	false
 character_skills_localised_description_rhox_grudge_ceridan_hero_assist_army_replenish_troops	Those in the army can find succour or be replenished by the power of this champion.	false
 character_skills_localised_name_rhox_grudge_ceridan_hero_assist_army_replenish_troops	{{tr:agent_action_name_replenish_troops}}	false
+character_skills_localised_description_morgan_bernhardt_gotrek_felix	After fighting a mighty dragon and Greenskins together at Khaz Drakk, the Dragons Hall, Gotrek formed one of his many unlikely bonds. If Gotrek is by chance adventuring nearby he would always aid his old friends.	false
+character_skills_localised_name_morgan_bernhardt_gotrek_felix	An Unlikely Bond	false

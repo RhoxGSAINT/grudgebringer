@@ -631,7 +631,7 @@ local event_table = {
         local money = 4000 * mod;
         
         payload_builder:treasury_adjustment(money);
-        payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+        payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
         payload_builder:text_display("rhox_grudgebringer_declare_war_payload")
         dilemma_builder:add_choice_payload("FIRST", payload_builder);
         payload_builder:clear();
@@ -1121,7 +1121,7 @@ local event_table = {
         local money = 3500 * mod;
         
         payload_builder:treasury_adjustment(money);
-        payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+        payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
         payload_builder:text_display("rhox_grudgebringer_declare_war_payload")
         dilemma_builder:add_choice_payload("FIRST", payload_builder);
         payload_builder:clear();
@@ -1223,7 +1223,7 @@ local event_table = {
         local money = 3000 * mod;
         
         payload_builder:treasury_adjustment(money);
-        payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+        payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
         payload_builder:text_display("rhox_grudgebringer_declare_war_payload")
         dilemma_builder:add_choice_payload("FIRST", payload_builder);
         payload_builder:clear();
@@ -1419,7 +1419,7 @@ local event_table = {
         local money = 2500 * mod;
         
         payload_builder:treasury_adjustment(money);
-        payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+        payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
         payload_builder:text_display("rhox_grudgebringer_declare_war_payload")
         dilemma_builder:add_choice_payload("FIRST", payload_builder);
         payload_builder:clear();
@@ -2134,17 +2134,17 @@ local event_table = {
 
 		local mod = 1 + (character:faction():bonus_values():scripted_value("rhox_grudge_market_price_modifier", "value") / 100);
 		
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("FIRST", payload_builder);
 		payload_builder:clear();
 
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("SECOND", payload_builder);
 		payload_builder:clear();
 		
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("THIRD", payload_builder);
 		payload_builder:clear();
@@ -2207,17 +2207,17 @@ local event_table = {
 
 		local mod = 1 + (character:faction():bonus_values():scripted_value("rhox_grudge_market_price_modifier", "value") / 100);
 		
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("FIRST", payload_builder);
 		payload_builder:clear();
 
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("SECOND", payload_builder);
 		payload_builder:clear();
 		
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("THIRD", payload_builder);
 		payload_builder:clear();
@@ -2280,17 +2280,17 @@ local event_table = {
 		
 		local mod = 1 + (character:faction():bonus_values():scripted_value("rhox_grudge_market_price_modifier", "value") / 100);
 		
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("FIRST", payload_builder);
 		payload_builder:clear();
 
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("SECOND", payload_builder);
 		payload_builder:clear();
 		
-		payload_builder:faction_ancillary_gain(get_random_ancillary_key_for_faction(character:faction():name(), nil, "rare"))
+		payload_builder:faction_ancillary_gain(rhox_grudgebringer_get_random_item())
 		payload_builder:treasury_adjustment(-1*math.floor(cm:random_number(1250, 750)*mod));
 		dilemma_builder:add_choice_payload("THIRD", payload_builder);
 		payload_builder:clear();

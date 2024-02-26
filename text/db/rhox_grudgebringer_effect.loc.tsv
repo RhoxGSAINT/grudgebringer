@@ -64,3 +64,4 @@ effects_description_rhox_grudge_effect_ability_enable_inquisitor_of_sigmar	Passi
 character_skills_localised_description_rhox_grudge_replenish	Proficient with figures, this Lord, or his subordinates, can keep his camp fulfilled, even in dire circumstances.	false
 character_skills_localised_name_rhox_grudge_replenish	Camp Logistician	false
 effects_description_rhox_grudge_hiddne_campaign_replenishment_rate_horde	Hidden. Hiddne is a typo	false
+effects_description_morgan_bernhardt_gotrek_felix	At the start of the battle, there is a %n% chance Gotrek and Felix will come to your aid.	false

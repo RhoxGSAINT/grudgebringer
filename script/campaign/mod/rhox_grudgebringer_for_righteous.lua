@@ -4,7 +4,7 @@ local skip_mission_sampling_num = 8
 local skip_mission_table={}
 local real_mousillon
 
-if common.vfs_exists("script/campaign/wh3_main_combi/mod/mixu_mousillon_campaign.lua") then
+if common.vfs_exists("script/frontend/mod/moxillon_frontend.lua") then
     real_mousillon = "mixer_msl_mallobaude"
 else
     real_mousillon = "wh_main_vmp_mousillon"
@@ -381,6 +381,19 @@ function rhox_setup_starting_missions()
         end
         
         if RHOX_GRUDGEBRINGER_MCT.all_hero then --mission is only triggered when all_hero option is on
+            if cm:get_campaign_name() == "cr_oldworld" then
+                rhox_gurdge_lh_regions={
+                    "cr_oldworld_region_flensburg",
+                    "cr_oldworld_region_kings_glade",
+                    "cr_oldworld_region_vitevo",
+                    "cr_oldworld_region_zhufbar",
+                    "cr_oldworld_region_altdorf",
+                    "cr_oldworld_region_averheim",
+                    "cr_oldworld_region_karak_hirn"
+                }
+            end
+        
+        
             for i=1,#rhox_gurdge_lh_regions do
                 rhox_trigger_grudgebringer_lh_mission(i)
             end

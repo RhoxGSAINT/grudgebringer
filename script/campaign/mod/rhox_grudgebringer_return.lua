@@ -227,6 +227,10 @@ local function rhox_find_5_faction_for_climate(character, climate)
     local faction_check_table = rhox_climate_faction_join_table[climate]
     local faction_list = cm:model():world():faction_list();
 	
+	if not culture_check_table then
+        return --it means the climate was unxepected 
+	end
+	
 	local pos_x = character:logical_position_x()
 	local pos_y = character:logical_position_y()
 	

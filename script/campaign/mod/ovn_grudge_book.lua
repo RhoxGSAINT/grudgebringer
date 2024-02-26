@@ -407,6 +407,9 @@ mod.create_map = function()
 
 	local map = core:get_or_create_component("pj_grudge_book_map", "ui/ovn_grudge_book/pj_custom_image.twui.xml", pages)
 	map:SetImagePath("ui/ovn_grudge_book/wh3_map.png", 0)
+	if cm:get_campaign_name() == "cr_oldworld" then
+        map:SetImagePath("ui/ovn_grudge_book/cr_oldworld_map.png", 0)
+	end
 	map:SetCanResizeWidth(true)
 	map:SetCanResizeHeight(true)
 	map:Resize(1093,725)
