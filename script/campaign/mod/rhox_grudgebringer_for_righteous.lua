@@ -161,56 +161,6 @@ local grudgebringer_missions ={
 
 local rhox_failed_mission_rewards ={}
 
-local grudgebringer_evil_ll_factions={
-    "wh2_dlc15_grn_bonerattlaz",
-    "wh_main_grn_crooked_moon",
-    "wh_main_grn_greenskins",
-    "wh_main_grn_orcs_of_the_bloody_hand",
-    "wh_main_vmp_vampire_counts",
-    "wh_main_vmp_schwartzhafen",
-    "wh3_main_vmp_caravan_of_blue_roses",
-    "wh3_dlc20_chs_azazel",
-    "wh3_dlc20_chs_festus",
-    "wh3_dlc20_chs_kholek",
-    "wh3_dlc20_chs_sigvald",
-    "wh3_dlc20_chs_valkia",
-    "wh3_main_chs_shadow_legion",
-    "wh3_dlc20_chs_vilitch",
-    "wh_main_chs_chaos",
-    "wh2_dlc17_bst_malagor",
-    "wh2_dlc17_bst_taurox",
-    "wh2_main_bst_shadowgor",
-    "wh_dlc03_bst_beastmen",
-    "wh_dlc08_nor_norsca",
-    "wh_dlc08_nor_wintertooth",
-    "wh2_dlc11_def_the_blessed_dread",
-    "wh2_main_def_cult_of_pleasure",
-    "wh2_main_def_hag_graef",
-    "wh2_main_def_har_ganeth",
-    "wh2_main_def_naggarond",
-    "wh2_twa03_def_rakarth",
-    "wh2_dlc09_skv_clan_rictus",
-    "wh2_main_skv_clan_eshin",
-    "wh2_main_skv_clan_mors",
-    "wh2_main_skv_clan_moulder",
-    "wh2_main_skv_clan_pestilens",
-    "wh2_dlc11_cst_noctilus",
-    "wh2_dlc11_cst_pirates_of_sartosa",
-    "wh2_dlc11_cst_the_drowned",
-    "wh2_dlc11_cst_vampire_coast",
-    "wh3_main_kho_exiles_of_khorne",
-    "wh3_main_nur_poxmakers_of_nurgle",
-    "wh3_main_tze_oracles_of_tzeentch",
-    "wh3_main_sla_seducers_of_slaanesh",
-    "wh3_main_ogr_disciples_of_the_maw",
-    "wh3_main_ogr_goldtooth",
-    "wh3_dlc23_chd_astragoth",
-    "wh3_dlc23_chd_legion_of_azgorh",
-    "wh3_dlc23_chd_zhatan",
-    "wh3_dlc24_tze_the_deceivers"
-}
-
-
 
 
 
